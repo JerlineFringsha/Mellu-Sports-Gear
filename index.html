@@ -16,7 +16,12 @@
             <img src="assets/Neck Eagle white.png" alt="Mellu Sports Gear Logo" class="logo">
         </div>
         <nav>
-            <ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#about">About</a></li>
@@ -35,18 +40,9 @@
     </section>
 
     <section id="products" class="section">
-        <h2>Our Premium Gear</h2>
+        <h2>Our Products</h2>
         <div class="product-grid">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/Football.png" alt="Pro Football">
-                </div>
-                <h3>Elite Match Football</h3>
-                <p>Professional grade leather football for ultimate precision.</p>
-                <p class="price">₹1,499</p>
-                <a href="tel:6382156452" class="btn">Order Now</a>
-            </div>
-            <div class="product-card">
+            <div class="product-card featured">
                 <div class="product-image">
                     <img src="assets/Cricket.png" alt="English Willow Bat">
                 </div>
@@ -55,11 +51,11 @@
                 <p class="price">₹4,999</p>
                 <a href="tel:6382156452" class="btn">Order Now</a>
             </div>
-            <div class="product-card">
+            <div class="product-card featured">
                 <div class="product-image">
                     <img src="assets/Tennis.png" alt="Tennis Racket">
                 </div>
-                <h3>Pro Aero Tennis Racket</h3>
+                <h3>Tennis Racket</h3>
                 <p>Lightweight carbon fiber for explosive speed and spin.</p>
                 <p class="price">₹3,299</p>
                 <a href="tel:6382156452" class="btn">Order Now</a>
@@ -92,6 +88,24 @@
     <footer>
         <p>© 2026 Mellu Sports Gear. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        const menu = document.querySelector('#mobile-menu');
+        const menuLinks = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', function () {
+            menu.classList.toggle('is-active');
+            menuLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('is-active');
+                menuLinks.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 
